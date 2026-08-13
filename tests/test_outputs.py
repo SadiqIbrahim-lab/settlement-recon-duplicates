@@ -120,3 +120,5 @@ def test_pipeline_itself_is_fixed():
         "the script itself is not fixed"
     )
     assert report["status"] == "MATCHED"
+
+    #rewritten test

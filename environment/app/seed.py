@@ -64,3 +64,5 @@ total = conn.execute("SELECT COUNT(*) FROM transactions").fetchone()[0]
 unique = conn.execute("SELECT COUNT(DISTINCT transaction_id) FROM transactions").fetchone()[0]
 print(f"Seeded: {total} rows, {unique} unique transaction_ids ({total - unique} duplicates)")
 conn.close()
+
+#completed

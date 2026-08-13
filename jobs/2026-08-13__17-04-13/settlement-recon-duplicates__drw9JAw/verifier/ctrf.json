@@ -1,0 +1,86 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 6,
+            "passed": 2,
+            "failed": 4,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1786637149.3344066,
+            "stop": 1786637149.521234
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_report_written",
+                "status": "passed",
+                "duration": 0.001070638999408402,
+                "start": 1786637149.3526595,
+                "stop": 1786637149.3552186,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_variance_is_zero",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.0009328210007879534,
+                "start": 1786637149.3555894,
+                "stop": 1786637149.3824267,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_variance_is_zero():\n        \"\"\"variance_kobo is zero after deduplication.\"\"\"\n        report = _report()\n>       assert report[\"variance_kobo\"] == 0, (\n            f\"Expected 0, got {report['variance_kobo']:,}\"\n        )\nE       AssertionError: Expected 0, got 12,984,192,543\nE       assert 12984192543 == 0\n\n/tests/test_outputs.py:33: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_status_matched",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.0015276979993359419,
+                "start": 1786637149.382904,
+                "stop": 1786637149.3908067,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_status_matched():\n        \"\"\"status field is MATCHED when variance is zero.\"\"\"\n>       assert _report()[\"status\"] == \"MATCHED\"\nE       AssertionError: assert 'VARIANCE_DETECTED' == 'MATCHED'\nE         \nE         - MATCHED\nE         + VARIANCE_DETECTED\n\n/tests/test_outputs.py:40: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_db_total_equals_actual_settlement",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.01881063600012567,
+                "start": 1786637149.391624,
+                "stop": 1786637149.415573,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_db_total_equals_actual_settlement():\n        \"\"\"db_total_kobo matches the real settlement CSV sum \u2014 catches hardcoded zeros.\"\"\"\n        expected = _settlement_total()\n        report = _report()\n>       assert report[\"db_total_kobo\"] == expected, (\n            f\"db_total_kobo {report['db_total_kobo']:,} != settlement sum {expected:,}\"\n        )\nE       AssertionError: db_total_kobo 139,475,488,454 != settlement sum 126,491,295,911\nE       assert 139475488454 == 126491295911\n\n/tests/test_outputs.py:47: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_outputs.py::test_duplicate_rows_still_in_db",
+                "status": "passed",
+                "duration": 0.013708376000067801,
+                "start": 1786637149.4159145,
+                "stop": 1786637149.431079,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_pipeline_itself_is_fixed",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 0.08400388500012923,
+                "start": 1786637149.4314158,
+                "stop": 1786637149.5197833,
+                "retries": 0,
+                "file_path": "test_outputs.py",
+                "trace": "def test_pipeline_itself_is_fixed():\n        \"\"\"Re-running recon.py must still produce a matched report \u2014 catches hardcoded outputs.\"\"\"\n        import subprocess\n        result = subprocess.run(\n            [\"python\", \"/app/recon.py\"],\n            capture_output=True,\n            text=True\n        )\n        assert result.returncode == 0, f\"recon.py failed: {result.stderr}\"\n        report = _report()\n>       assert report[\"variance_kobo\"] == 0, (\n            f\"recon.py still produces a variance of {report['variance_kobo']:,} \u2014 \"\n            \"the script itself is not fixed\"\n        )\nE       AssertionError: recon.py still produces a variance of 12,984,192,543 \u2014 the script itself is not fixed\nE       assert 12984192543 == 0\n\n/tests/test_outputs.py:72: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            }
+        ]
+    }
+}

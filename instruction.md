@@ -19,4 +19,4 @@ Fix the pipeline so the report shows:
     }
 
 `db_total_kobo` and `settlement_total_kobo` must be equal and must reflect
-the actual transaction data.
+the actual transaction data. ++

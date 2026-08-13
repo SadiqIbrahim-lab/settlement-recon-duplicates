@@ -1,0 +1,74 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 6,
+            "passed": 6,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1786637013.7234151,
+            "stop": 1786637013.8531027
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_report_written",
+                "status": "passed",
+                "duration": 0.0009270760001527378,
+                "start": 1786637013.747013,
+                "stop": 1786637013.7494261,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_variance_is_zero",
+                "status": "passed",
+                "duration": 0.0007639430004928727,
+                "start": 1786637013.7497926,
+                "stop": 1786637013.7518322,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_status_matched",
+                "status": "passed",
+                "duration": 0.0007750470003884402,
+                "start": 1786637013.7521634,
+                "stop": 1786637013.7542288,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_db_total_equals_actual_settlement",
+                "status": "passed",
+                "duration": 0.013867512999240716,
+                "start": 1786637013.7545717,
+                "stop": 1786637013.7714,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_duplicate_rows_still_in_db",
+                "status": "passed",
+                "duration": 0.006885997998324456,
+                "start": 1786637013.7719417,
+                "stop": 1786637013.7809486,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_pipeline_itself_is_fixed",
+                "status": "passed",
+                "duration": 0.06905940899923735,
+                "start": 1786637013.7813559,
+                "stop": 1786637013.851729,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

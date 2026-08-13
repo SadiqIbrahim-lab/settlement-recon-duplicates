@@ -1,17 +1,9 @@
 #sadiq-ibrahim/settlement-recon-duplicates
 ## Adversarial testing log
+Cheat 1 — deleted duplicate rows directly from SQLite, then ran recon.py normally. Caught by test_duplicate_rows_still_in_db.
 
-**Cheat 1 — delete duplicate rows (Cheat 3 in session):**
-Deleted duplicates directly from SQLite, ran recon.py normally.
-Result: 4/5 passed, test_duplicate_rows_still_in_db caught it. ✓
+Cheat 2 — computed settlement total from CSV, wrote matching JSON directly without touching recon.py. Initially passed all tests — hole found. Fixed by adding test_pipeline_itself_is_fixed which deletes the report before re-running recon.py, so stale hand-written files cannot pass.
 
-**Cheat 2 — hardcode output JSON from settlement CSV:**
-Computed settlement total from CSV, wrote matching JSON directly
-without touching recon.py or the DB.
-Result: initially 5/5 passed — hole found.
+Reviewer identified two further holes: db_total_kobo was not independently verified against the DB, and test_pipeline_itself_is_fixed did not clear the report before re-running. Fixed by computing ground truth with a DISTINCT query against the DB, deleting the report before re-run, adding PENDING rows to seed.py to make the WHERE status filter testable, and removing the bug comment from recon.py.
 
-**Fix applied:**
-Added test_pipeline_itself_is_fixed — re-runs recon.py after
-any output is written, overwriting hardcoded files with the
-real broken output.
-Result: cheat now fails, oracle still 1.0. ✓
+Oracle 1.0, nop 0.0 confirmed after all fixes.

@@ -1,0 +1,13 @@
+{
+    "job_name": "2026-08-13__17-04-13",
+    "agents": [
+        {
+            "name": "nop"
+        }
+    ],
+    "tasks": [
+        {
+            "path": "/home/isahy/settlement-recon-duplicates"
+        }
+    ]
+}
