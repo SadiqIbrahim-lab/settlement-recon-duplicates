@@ -1,0 +1,12 @@
+[task]
+name = "your-org/settlement-recon-duplicates"
+version = "1.0.0"
+description = "Post-migration duplicate transactions inflate the reconciliation total. Fix the recon script so the report matches the payment processor settlement file."
+categories = ["debugging", "data"]
+difficulty_explanation = "The bug lives in the data state, not the code. The agent must run the pipeline, observe the variance, query the database to discover duplicated transaction_ids from the migration, and fix the aggregation query to deduplicate before summing — not delete rows."
+
+[agent]
+timeout_sec = 1200
+
+[environment]
+network_mode = "public"

@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(which harbor *)",
+      "Bash(harbor --help)",
+      "Bash(harbor run *)",
+      "Bash(docker version *)",
+      "Bash(harbor task *)",
+      "Bash(python -c ' *)",
+      "Bash(python -)",
+      "Bash(grep -n \"DatasetConfig\\(\" \"C:/Users/isahy/AppData/Roaming/uv/tools/harbor/Lib/site-packages/harbor/cli/jobs.py\" | head -20)"
+    ]
+  }
+}
